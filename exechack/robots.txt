@@ -1,0 +1,2 @@
+Sitemap: https://x.exechack.cc/forum/sitemap.php
+Sitemap: https://x.exechack.cc/lua?b=sitemap
