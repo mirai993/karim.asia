@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1e293b" media="(prefers-color-scheme)" />
+  <title>exechack.cc docs</title>
+  <script type="module" crossorigin>
+(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const n of document.querySelectorAll('link[rel="modulepreload"]'))s(n);new MutationObserver(n=>{for(const o of n)if(o.type==="childList")for(const l of o.addedNodes)l.tagName==="LINK"&&l.rel==="modulepreload"&&s(l)}).observe(document,{childList:!0,subtree:!0});function i(n){const o={};return n.integrity&&(o.integrity=n.integrity),n.referrerpolicy&&(o.referrerPolicy=n.referrerpolicy),n.crossorigin==="use-credentials"?o.credentials="include":n.crossorigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function s(n){if(n.ep)return;n.ep=!0;const o=i(n);fetch(n.href,o)}})();const d=document.querySelectorAll(".navigation_ul li a"),r=[...d].map(e=>{if(!(e instanceof HTMLAnchorElement))return null;const t=e.getAttribute("href");if(!t||!t.startsWith("#"))return null;const i=document.getElementById(t.substring(1));return i?{a:e,el:i,inView:!1}:null}).filter(e=>e!==null);if("IntersectionObserver"in window){const e=new IntersectionObserver(t=>{for(const i of t){const s=r.find(n=>n.el===i.target);s&&(s.inView=i.isIntersecting)}f()},{threshold:[0],rootMargin:"-50px"});for(const t of r)e.observe(t.el)}r.forEach(e=>{const t=e.a;t instanceof HTMLElement&&t.addEventListener("click",()=>{document.body.classList.remove("navigation_opened")})});let c=null;function f(){const e=r.find(t=>t.inView);e&&(c&&c.classList.remove("active"),e.a.classList.add("active"),c=e.a,"scrollIntoViewIfNeeded"in e.a&&typeof e.a.scrollIntoViewIfNeeded=="function"&&e.a.scrollIntoViewIfNeeded(),history.replaceState({},"",`#${e.el.id}`))}document.body.classList.add("sticked_nested_titles");const u=document.getElementsByClassName("nested-table_title");for(const e of u){let t=e.parentElement,i=0;for(;t;)t.classList.contains("nested-table")&&(i+=1),t=t.parentElement;e instanceof HTMLElement&&e.style.setProperty("--level",String(i))}var a;(a=document.getElementsByClassName("navigation-button").item(0))==null||a.addEventListener("click",()=>{if(document.body.classList.contains("navigation_opened"))document.body.classList.remove("navigation_opened");else{document.body.classList.add("navigation_opened");const e=document.querySelector(".navigation_link.active");e&&"scrollIntoViewIfNeeded"in e&&typeof e.scrollIntoViewIfNeeded=="function"&&e.scrollIntoViewIfNeeded()}});
+
+</script>
+
+<style>.db_header,.sticked_nested_titles .nested-table_title{position:sticky}.db_header,.header_query{text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.card,.navigation-button{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.db_header,.header_query,body.navigation_opened{overflow:hidden}a,hr{color:inherit}progress,sub,sup{vertical-align:baseline}blockquote,body,dd,dl,fieldset,figure,h1,h2,h3,h4,h5,h6,hr,menu,ol,p,pre,ul{margin:0}fieldset,legend,menu,ol,ul{padding:0}.table-main{display:flex;flex-direction:column;background-color:inherit}.row,.table-card_table{display:grid;grid-template-columns:repeat(1,minmax(0,1fr))}.table-card_table{gap:.5rem}.row{gap:.25rem;padding-top:.5rem;padding-bottom:.5rem}.card,.nested-table_table{display:flex;flex-direction:column}.nested-table+.nested-table,.nested-table+.row,.row+.nested-table,.row+.row{border-top-width:1px}.nested-table+.nested-table,.nested-table+.row{margin-top:.5rem;border-top-width:0}.nested-table_title,.row_left{word-break:break-all;--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity))}@media (prefers-color-scheme){.nested-table,.nested-table_table,.row{--tw-border-opacity:1;border-color:rgb(51 65 85 / var(--tw-border-opacity))}.nested-table_title,.row_left{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity))}}@media print{.row{padding-top:0;padding-bottom:0}.nested-table+.nested-table,.nested-table+.row{border-top-width:1px}.nested-table_title,.row_left{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity))}}.db_header,.header_title{font-size:1.25rem;--tw-text-opacity:1}@media (min-width:640px){.row{gap:.5rem}.nested-table_title,.row_left{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity))}}.row_right{word-break:break-all;--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity))}@media (prefers-color-scheme){@media (min-width:640px){.nested-table_title,.row_left{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity))}}.row_right{--tw-text-opacity:1;color:rgb(241 245 249 / var(--tw-text-opacity))}}@media not all and (min-width:640px){.nested-table_title,.row_left{font-size:.875rem;line-height:1.25rem}.row_right{font-weight:500}}.nested-table_table{background-color:inherit;padding-left:.75rem}@media not print{.nested-table{display:grid;grid-template-columns:repeat(1,minmax(0,1fr));gap:.5rem;background-color:inherit;padding-top:.5rem}.nested-table_title{background-color:inherit;top:calc(3.5rem - 1.25rem + var(--level) * 1.25rem);z-index:calc(100 - var(--level))}@media not all and (min-width:640px){.nested-table_title{padding-left:.25rem}}.nested-table_table{display:flex;flex-direction:column;border-left-width:1px;border-style:dashed;padding-top:0;padding-bottom:0}}@media (min-width:640px),print{.nested-table{margin-top:0;display:grid;grid-template-columns:repeat(1,minmax(0,1fr));gap:.5rem}.nested-table_title{top:calc(3.5rem - 1.5rem + var(--level) * 1.25rem)}.nested-table_table{display:flex;flex-direction:column;border-left-width:1px;border-style:dashed}@media print{.nested-table{gap:0}.nested-table_table{padding-top:0;padding-bottom:0}}.row,.table-card_table{grid-template-columns:1fr 2fr}}.card{border-radius:.75rem;border-width:1px;--tw-border-opacity:1;border-color:rgb(189 189 189 / var(--tw-border-opacity));--tw-bg-opacity:1;background-color:#2D333F;padding:.5rem 1rem;--tw-shadow:0 1px 2px 0 rgb(0 0 0 / .05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color)}.db,.db_cards{flex-direction:column;display:flex}.db_header{top:0;margin:-.5rem;background-color:inherit;padding:.5rem;font-weight:500;line-height:2.5rem;color:rgb(66 66 66 / var(--tw-text-opacity));z-index:101}@media (prefers-color-scheme){.card{--tw-border-opacity:1;border-color:rgb(51 65 85 / var(--tw-border-opacity));--tw-bg-opacity:1;background-color:2D333F;--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.db_header{--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity))}:root{--logo-users:#2d60b2;--logo-box:#2279b7}}.databases,.db,.db_cards{background-color:inherit}.db{gap:1rem}.db_cards{margin-bottom:2rem;gap:1rem}.header,body{background-color:#292E39;--tw-bg-opacity:1}:root{--logo-users:#2d60b2;--logo-box:#2279b7}.header{padding:1rem}@media (prefers-color-scheme){.header{--tw-bg-opacity:1;background-color:#313742}@media print{.row_right{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity))}@media not all and (min-width:640px){.row_right{font-weight:400}}.card{border-radius:0;border-style:none;padding:0;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.db_header{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity));--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity))}.db{gap:.25rem}.db_cards{margin-bottom:.25rem}.header{padding:0}}@media (min-width:640px){.db_cards{margin:0}.db{margin-bottom:2rem}@media print{.db{margin-bottom:.25rem}}.header{border-bottom-width:1px;--tw-border-opacity:1;border-color:rgb(224 224 224 / var(--tw-border-opacity));--tw-bg-opacity:1;background-color:#313742;padding-left:.5rem;padding-right:.5rem}}.content,.content>main{background-color:inherit}.header_row{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end}.header_logo{display:flex;align-items:center;gap:.75rem}.header_logo>img{margin-left:-.25rem;height:2rem}.h-5,.header_logo>svg{height:1.25rem}.header_title{flex-shrink:0;line-height:1.75rem;font-weight:600;color:rgb(55 65 81 / var(--tw-text-opacity))}@media (prefers-color-scheme){@media (min-width:640px){.header{--tw-border-opacity:1;border-color:rgb(51 65 85 / var(--tw-border-opacity));--tw-bg-opacity:1;background-color:#313742}}.header_title{--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity))}}@media print{.header_row{flex-direction:row;align-items:center;justify-content:flex-start;gap:.5rem}.header_logo>svg{height:1rem}.header_title{font-size:1rem;line-height:1.5rem;--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity))}}.header_print_button,.header_query{line-height:1.25rem;color:rgb(107 114 128 / var(--tw-text-opacity));--tw-text-opacity:1}.header_query{margin-top:.3rem;max-width:100%;font-size:.75rem}.header_print_button{border-radius:.375rem;border-width:1px;padding:.25rem .5rem;font-size:.875rem}.header_print_button:hover{background-color:#6b72800d}body{line-height:inherit}body,html{scroll-behavior:auto}.content{width:100%;margin-right:auto;margin-left:auto;margin-top:1rem;display:grid;grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:100%){.content{max-width:100%}}@media (min-width:640px){.header_row{flex-direction:row;align-items:center;gap:1.5rem}.header_logo>img{height:3rem}.header_title{margin-right:auto}.content{max-width:640px}}@media (min-width:768px){.content{max-width:768px;grid-template-columns:minmax(0,2fr) 1fr}@media print{.content{grid-template-columns:repeat(1,minmax(0,1fr))}}}@media (min-width:1024px){.content{max-width:1024px}}.content>main{padding-left:1rem;padding-right:1rem}.section_header{margin-top:.5rem;margin-bottom:.5rem;text-align:center;font-size:1.125rem;font-weight:600;line-height:2.5rem;--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity))}@media not all and (min-width:640px){.header_title{margin-top:3rem;font-size:1.875rem;line-height:2.25rem}.header_query{margin-top:.75rem}.section_header{display:none}}*{-webkit-tap-highlight-color:transparent}.navigation_link{display:block;padding-top:.25rem;padding-bottom:.25rem}.navigation{margin-left:.5rem;margin-right:.5rem}@media print{@media not all and (min-width:640px){.header_title{margin-top:0;font-size:1rem;line-height:1.5rem}.header_query{margin:.1rem 0 0}}.header_print_button,.navigation,.section_header{display:none}.content{max-width:unset;margin-top:0}.content>main{padding:0}.container{max-width:unset!important}*{border-color:#000!important}}.navigation_backdrop{position:fixed;top:0;left:0;right:0;display:none;height:100%;height:100lvh;background-color:#292E39cc;z-index:102}.navigation-button{position:fixed;bottom:1rem;right:2rem;border-radius:.75rem;border-width:1px;--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity));padding:1rem;--tw-shadow:0 10px 15px -3px rgb(0 0 0 / .1),0 4px 6px -4px rgb(0 0 0 / .1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color);z-index:103}.navigation-button_closed,.navigation-button_opened,[hidden]{display:none}body.navigation_opened .navigation-button_opened,body.navigation_opened .navigation_backdrop,body:not(.navigation_opened) .navigation-button_closed{display:block}body.navigation_opened .navigation_sticky{display:flex;flex-direction:column}.navigation_sticky{display:none;z-index:103}.navigation_ul{max-height:90vh;font-size:.875rem;line-height:1.5rem;--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity));overflow:auto}@media not all and (min-width:768px){.header_print_button{display:none}.content{margin-bottom:3.5rem}.navigation .section_header{display:block}body.navigation_opened .navigation_sticky{position:fixed}.navigation_sticky{top:auto;right:1rem;left:1rem;bottom:6rem;overflow:hidden;overflow-x:auto;border-radius:1rem;--tw-border-opacity:1;border-color:rgb(156 163 175 / var(--tw-border-opacity));--tw-bg-opacity:1;background-color:#2D333F;--tw-shadow:0 25px 50px -12px rgb(0 0 0 / .25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);max-height:calc(100svh - 8rem)}@media (prefers-color-scheme){.navigation_sticky{--tw-bg-opacity:1;background-color:#2D333F}}.navigation_ul{padding-left:1rem;padding-right:1rem;padding-bottom:1rem}}.navigation_link.active{font-weight:500;--tw-text-opacity:1;color:rgb(7 89 133 / var(--tw-text-opacity))}.navigation_link{position:relative;padding-left:1rem}.navigation_link:hover{--tw-text-opacity:1;color:rgb(14 165 233 / var(--tw-text-opacity))}@media (prefers-color-scheme){.header_print_button{--tw-border-opacity:1;border-color:rgb(71 85 105 / var(--tw-border-opacity));--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity))}.header_print_button:hover{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity))}body{--tw-bg-opacity:1;background-color:#292E39;--tw-text-opacity:1;color:rgb(241 245 249 / var(--tw-text-opacity))}.section_header{--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity))}.navigation-button{--tw-border-opacity:1;border-color:rgb(71 85 105 / var(--tw-border-opacity));--tw-bg-opacity:1;background-color:#313742}.navigation_ul{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity))}.navigation_link.active{--tw-text-opacity:1;color:#246DFF}.navigation_link:hover{--tw-text-opacity:1;color:rgb(56 189 248 / var(--tw-text-opacity))}}.navigation_link.active:before{position:absolute;top:0;left:0;font-weight:700;line-height:2rem;font-family:monospace;content:"-"}*,:after,:before{box-sizing:border-box;border:0 solid #363C46;--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(34 158 217 / .5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }:after,:before{--tw-content:""}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";font-feature-settings:normal}hr{height:0;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}menu,ol,ul{list-style:none}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(34 158 217 / .5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.container{width:100%;margin-right:auto;margin-left:auto}@media (min-width:100%){.container{max-width:100%}}@media (min-width:640px){.section_header{text-align:left}.container{max-width:640px}}@media (min-width:768px){.navigation-button{display:none}.navigation_sticky{position:sticky;top:.5rem;display:block}.container{max-width:768px}.md\:h-5{height:1.25rem}}@media (min-width:1024px){.container{max-width:1024px}}.my-1{margin-top:.25rem;margin-bottom:.25rem}.h-4{height:1rem}.w-5{width:1.25rem}</style>
+</head>
+
+
+
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header_row">
+        <div class="header_title">exechack.cc docs</div>
+      </div>
+    </div>
+  </header>
+  <div class="content">
+    <main>
+      <div class="section_header">all the necessary information</div>
+	  
+	<div id="google_translate_element"></div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	 
+	 
+      <div class="databases">
+       
+	   
+	<div class="db" id="downloadloader"><div class="db_header">Download Loader</div>
+	<div class="db_cards">
+
+
+	<div class="card">
+	<div class="table-main">
+	<div class="row">
+		<div class="row_left">Standart</div>
+		<div class="row_right"><img src="https://i.imgur.com/cMnkpr1.png"><br><a style="color:yellow" href="1.zip" target="_blank">Download</a> password: <ff style="color:green">exechack.cc</ff></div>
+	</div>
+	<div class="row">
+		<div class="row_left">Chromium</div>
+		<div class="row_right"><img src="https://i.imgur.com/AQAtGTb.png">for "x86-64 - chromium + 64-bit binaries" beta version<br><br><a style="color:yellow" href="2.zip" target="_blank">Download</a> password: <ff style="color:green">exechack.cc</ff></div>
+	</div>
+
+		
+	<div class="row">
+		<div class="row_left">Required</div>
+		<div class="row_right">
+			<a style="color:yellow" href="https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0" target="_blank">visual c++</a>,
+			<a style="color:yellow" href="https://www.microsoft.com/en-us/download/details.aspx?id=8109" target="_blank">directx</a>,
+			disable antivirus,
+			run by administrator,
+			read all documentation below
+		</div>
+	</div>
+		
+	</div> 
+	</div>
+
+
+
+	</div>
+	</div>
+	
+	
+	<div class="db" id="premium"><div class="db_header"><ff style="color:#FF0000;">P</ff><ff style="color:#E11924;">r</ff><ff style="color:#C43348;">e</ff><ff style="color:#A74D6D;">m</ff><ff style="color:#8A6691;">i</ff><ff style="color:#6D80B6;">u</ff><ff style="color:#509ADA;">m</ff></div>
+	<div class="db_cards">
+              
+	<div class="card">
+	<div class="table-main"> 
+	<div class="row">
+		<div class="row_left">Subscription</div>
+		<div class="row_right">subscription with benefits, for additional support of the project</a>
+			</div>
+	</div>
+	<div class="row">
+		<div class="row_left">Forum</div>
+		<div class="row_right">priority in support</div>
+	</div>
+	<div class="row">
+		<div class="row_left">Cheat</div>
+		<div class="row_right">hwid reset every 3 days<br>custom gif background<img src="https://i.imgur.com/xKpCv0Y.gif">custom esp fonts<img src="https://i.imgur.com/a5dtiHp.png"></div>
+	</div>
+	<div class="row">
+		<div class="row_left">Lua list</div>
+		<div class="row_right">exclusive new lua<br>exclusive for premium - <a style="color:yellow" href="https://x.exechack.cc/lua/premium" target="_blank">premium list</a><img src="https://i.imgur.com/aOOd9Ek.png"></div>
+	</div>
+	<div class="row">
+		<div class="row_left">Share subscription</div>
+		<div class="row_right">
+			share subscription with your friend on day
+			<br>
+			<form method="get" name="form" action="https://x.exechack.cc/forum/key/friend.php" target="_blank">
+				<input style="color:#CBD5E1;background-color:#292E39;border: 1px solid #334155;border-radius:5px;" name="a" type="text" placeholder="username from forum"/>
+				<br>
+				<input style="color:yellow" type="submit" value="share"/>
+			</form>
+			<br>This function is created for playing with a friend, not as a way to buy a single subscription for two. Abuse is prohibited, and you are also responsible to your friend for any violations of our rules.
+		</div>
+	</div>
+	</div>
+	</div> 
+	
+	</div>
+	</div>
+	
+
+	<div class="db" id="new"><div class="db_header">Informations for newbies</div>
+	<div class="db_cards">
+              
+	<div class="card">
+	<div class="table-main">
+		
+	<div class="row">
+		<div class="row_left">Materials</div>
+		<div class="row_right">
+			<a style="color:yellow" href="https://x.exechack.cc/forum/categories/7/" target="_blank">cfgs</a> - ready made settings of the cheat from users.
+			<br><a style="color:yellow" href="https://x.exechack.cc/lua/" target="_blank">lua list</a> - scripts for additional functions and other effects.
+			<br><a style="color:yellow" href="https://x.exechack.cc/forum/categories/16/" target="_blank">tips-n-tricks</a> and <a style="color:yellow" href="https://x.exechack.cc/forum/categories/32/" target="_blank">other</a> - guides and other useful materials.
+			<br><a style="color:yellow" href="https://x.exechack.cc/serv/" target="_blank">servers database</a> - database with all servers, with other users game sessions for ensure the collective safety of our community.
+		</div>
+	</div>
+	<div class="row">
+		<div class="row_left">Anticheat</div>
+		<div class="row_right">
+				Each server in garrys mod is like a separate game, cheat is maximally unified but unfortunately there are problems including individual anticheat on each server, for this we have created a database of servers with other user sessions.
+				<img src="https://i.postimg.cc/4y5mgxtF/image.png">Before connecting, check server security and see what other players were banned for, very dangerous and unplayable servers will be hidden from the serverlist (<a style="color:yellow" href="https://exechack.cc/serv/?a=p" target="_blank">database/problem servers</a>).
+		</div>
+	</div>
+	<div class="row">
+		<div class="row_left">Compatibility</div>
+		<div class="row_right">
+				Each server in garrys mod is like a separate game, cheat is maximally unified but unfortunately there are problems. for this reason, we created a couple of run method (injection method for server addons)
+				<img src="https://i.postimg.cc/zGgjBkMv/image.png">if standart not working and your get Failed Lua Initializing try other run methods
+		</div>
+	</div>
+		
+	<div class="row">
+		<div class="row_left">Legit Game</div>
+		<div class="row_right">
+				Enable spectators list for to see if admins are watching you.
+				<img src="https://i.postimg.cc/FsM24Vr8/image.png">
+				Disable bunnyhop or set max hops 2-3
+				<br>Disable rage function in aimbot and enable smooth.
+				<img src="https://i.postimg.cc/T2z6d6Qt/image.png">
+		</div>
+	</div>
+	<div class="row">
+		<div class="row_left">Ban Bypass</div>
+		<div class="row_right">
+				Servers may write identification files to game files to detect ban bypass.
+				<br>Delete this files in Steam\steamapps\common\GarrysMod\garrysmod:
+				<img src="https://i.postimg.cc/76PLNyj3/image.png">
+				Most frequently used files are marked in red, we recommend deleting all of them.
+				<br>New steam account with new purchased gmod (family sharing not available in many servers).
+				<br>New ip address - solved by turning on vpn, bad or free ones can be in the vpn address database and the server can will kick you.
+				<br><br>Delete files, new account, new ip - there is no hardware ban in garrys mod.
+		</div>
+	</div>
+		
+		
+	</div>
+	</div> 
+	
+	</div>
+	</div>
+	
+	
+	<div class="db" id="usagecfg"><div class="db_header">Usage Cfg</div>
+	<div class="db_cards">
+              
+	<div class="card">
+	<div class="table-main"> 
+	<div class="row">
+		<div class="row_left">File</div>
+		<div class="row_right">1. download cfg from <a style="color:yellow" href="https://x.exechack.cc/forum/categories/7/" target="_blank">forum</a><br>2. drop .cfgexec files to C/exechack<br>3. load cfg in menu>config>main</div>
+	</div>
+	<div class="row">
+		<div class="row_left">Cloud Key</div>
+		<div class="row_right">1. copy the key from forum<img src="https://i.imgur.com/vLwmX6v.png">2. enter the key in menu>config>main>cloud<img src="https://i.imgur.com/1v2kMp4.png"></div>
+	</div>
+	</div>
+	</div> 
+	
+	</div>
+	</div>
+	
+	
+	<div class="db" id="usagelua"><div class="db_header">Usage Lua</div>
+	<div class="db_cards">
+              
+	<div class="card">
+	<div class="table-main"> 
+	<div class="row">
+		<div class="row_left">File</div>
+		<div class="row_right">1. drop .lua or .luamenu files to C/exechack<br>2. load in menu>lua>disc<img src="https://i.imgur.com/Hz5wg8P.png"></div>
+	</div>
+	<div class="row">
+		<div class="row_left"><a style="color:yellow" href="https://x.exechack.cc/lua" target="_blank">Lua List</a></div>
+		<div class="row_right">open menu>lua>main>lua list, press run script</div>
+	</div>
+	<div class="row">
+		<div class="row_left">Editor</div>
+		<div class="row_right">open menu>lua>main>editor>enter code>run script<img src="https://i.imgur.com/clvtcrl.png"></div>
+	</div>
+	</div>
+	</div> 
+
+	</div>
+	</div>
+	
+	<div class="db" id="createlua"><div class="db_header">Create Lua</div>
+	<div class="db_cards">
+              
+	<div class="card">
+	<div class="table-main"> 
+	<div class="row">
+		<div class="row_left">Information</div>
+		<div class="row_right">cheat can run <a style="color:yellow" href="https://wiki.facepunch.com/gmod/States#client" target="_blank">client</a> and <a style="color:yellow" href="https://wiki.facepunch.com/gmod/States#menu" target="_blank">menu</a> scripts, menu scripts for menu integration with api or get full access</div>
+	</div>
+	<div class="row">
+		<div class="row_left">Sources</div>
+		<div class="row_right">
+			Base - <a style="color:yellow" href="https://www.lua.org/manual/5.1" target="_blank">lua.org/manual/5.1</a> - LUA(syntax+standard functions)
+			<br>
+			Gmod - <a style="color:yellow" href="https://wiki.facepunch.com/gmod" target="_blank">wiki.facepunch.com/gmod</a> - GLUA(useless gmod syntax+api for scripts)
+			<br>
+			Cheat - <a style="color:yellow" href="https://x.exechack.cc/lua/api" target="_blank">exechack.cc/lua/api</a> - exechackapi(cheat integration)
+		</div>
+	</div>
+	</div>
+	</div> 
+	
+	</div>
+	</div>
+
+	
+	<div class="db" id="hwid"><div class="db_header">HWID</div>
+	<div class="db_cards">
+              
+	<div class="card">
+	<div class="table-main"> 
+	<div class="row">
+		<div class="row_left">Information</div>
+		<div class="row_right">using the cheat is allowed only 1 device, reset in subscriptions or <a style="color:yellow" href="https://exechack.cc/forum/hwid.php" target="_blank">here</a>
+		<br>can reseted from windows reinstall<img src="https://i.imgur.com/6AgIMUB.png">
+		no early reset provided
+		<br>for account transfer permament ban
+		</div>
+	</div>
+	<div class="row">
+		<div class="row_left">Reset limits</div>
+		<div class="row_right">Standart - 14 days<br>Premium - 3 days</div>
+	</div>
+	</div>
+	</div> 
+	
+	</div>
+	</div>
+	
+	
+	
+	<div class="db" id="buymethods"><div class="db_header">Buy Methods</div>
+	<div class="db_cards">
+
+
+	<div class="card">
+	<div class="table-main">
+	<div class="row">
+		<div class="row_left">Information</div>
+		<div class="row_right">payment is accepted only by these methods.</div>
+	</div>
+	<div class="row">
+		<div class="row_left">RU - MIR</div>
+		<div class="row_right">manual transfer, 5% commission</div>
+	</div>
+	<div class="row">
+		<div class="row_left">GLOBAL - Crypto/FreeKassa</div>
+		<div class="row_right">crypto - processing within 1 hour<br>skins - 40% commission<br>if problem with payment or unsuccessful payment, contact with <a style="color:yellow" href="https://freekassa.net/support" target="_blank">freekassa support</a></div>
+	</div>
+	<div class="row">
+		<div class="row_left">US/EU - Paypal/Reseller</div>
+		<div class="row_right">purchase through a reseller with his commission, or write resellers directly</div>
+	</div>	
+	<div class="row">
+		<div class="row_left">Gift</div>
+		<div class="row_right">Ask a friend to generate a purchase link and pay for it yourself.<br>Example link:<br>https://pay.freekassa.net/?m=</div>
+	</div>
+	</div> 
+	</div>
+
+         
+
+
+	</div>
+	</div>
+	
+	
+	
+	
+	
+	
+	<div class="db" id="rules"><div class="db_header">Rules</div>
+	<div class="db_cards">
+              
+	<div class="card">
+	<div class="table-main"> 
+	<div class="row">
+		<div class="row_left">Temporary ban</div>
+		<div class="row_right">
+			spam/shitposting in forum/tickets/reports - 1 week
+			<br>
+			subscription share abuse - 1 month
+			<br>
+			server developing - 3 days(risk of creating anticheat)
+		</div>
+	</div>
+	<div class="row">
+		<div class="row_left">Permanent ban</div>
+		<div class="row_right">
+			any harming exechack and its community
+			<br>
+			ban bypass/multi account
+			<br>
+			ddos website/crack
+			<br>
+			leak materials(content)
+			<br>
+			account transfer or selling or hacking
+			<br>
+			anticheat testing or developing
+		</div>
+	</div>
+
+		
+	</div>
+	</div> 
+	
+	</div>
+	</div>
+	
+
+	
+
+
+	<div class="db" id="popularproblems"><div class="db_header">Popular problems</div>
+	<div class="db_cards">
+              
+	<div class="card">
+	<div class="table-main"> 
+	
+	<div class="nested-table_title" style="--level: 1;">
+	<a style="color:red">"MSVCP140.dll code could not be found" or "0xc00000ba"</a>
+	<br>
+	<adfg style="color:lightgreen">- download <a style="color:yellow" href="https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0" target="_blank">visual c++</a>, <a style="color:yellow" href="https://www.microsoft.com/en-us/download/details.aspx?id=8109" target="_blank">directx</a></adfg>
+	</div>
+	<br>
+	<div class="nested-table_title" style="--level: 1;">
+	<a style="color:red">loader "game not found, running"</a>
+	<br>
+	<adfg style="color:lightgreen">- dont use x64 loader for x32 game or vice versa, remove "-multirun" from launch option</adfg>
+	</div>
+	<br>
+		
+	<div class="nested-table_title" style="--level: 1;">
+	<a style="color:red">Loader "Injecting.." and nothing</a>
+	<br>
+	<adfg style="color:lightgreen">- run loader by administrator</adfg>
+	<br>
+	<adfg style="color:lightgreen">- use vpn, maybe in your country website banned</adfg>
+	<br>
+	<adfg style="color:lightgreen">- try run loader 20 times in a row</adfg>
+	<br>
+	<adfg style="color:lightgreen">- try install all visual c++</adfg>
+	<br>
+	<adfg style="color:lightgreen">- try change the version of the game and loader to another</adfg>
+	</div>
+	<br>
+
+	<div class="nested-table_title" style="--level: 1;">
+	<a style="color:red">Loader "Downloading.." and nothing</a>
+	<br>
+	<adfg style="color:lightgreen">- load with vpn</adfg>
+	<br>
+	<adfg style="color:lightgreen">- disable dpi bypasser, he interferes with the loader protection.</adfg>
+	</div>
+	<br>
+		
+	<div class="nested-table_title" style="--level: 1;">
+	<a style="color:red">I couldnt log into my account and I havent logged into it for a long time</a>
+	<br>
+	<adfg style="color:lightgreen">- auto deleted dead accounts havent used it for more than half a year, to restore, create a ticket with a request to restore and present: login + password + email about purchase + purchase receipt from bank.</adfg>
+	</div>
+	<br>
+	<div class="nested-table_title" style="--level: 1;">
+	<a style="color:red">where i can reset password?</a>
+	<br>
+	<adfg style="color:lightgreen">- in <a style="color:yellow" href="https://x.exechack.cc/forum/account/security" target="_blank">password and security</a>, or logout and click forgot password</adfg>
+	</div>
+	<br>
+	
+	<div class="nested-table_title" style="--level: 1;">
+	<a style="color:red">not working custom zoom, how fix it?</a>
+	<br>
+	<adfg style="color:lightgreen">- cheat not support server zoom from weapons and thirdperson and etc</adfg>
+	</div>
+	<br>
+	
+	<div class="nested-table_title" style="--level: 1;">
+	<a style="color:red">where to know is where exechack is detected?</a>
+	<br>
+	<adfg style="color:lightgreen">- <a style="color:yellow" href="https://x.exechack.cc/serv" target="_blank">exechack.cc/serv</a></adfg>
+	</div>
+	<br>
+
+
+	<div class="nested-table_title" style="--level: 1;">
+	<a style="color:red">screen twitching on server</a>
+	<br>
+	<adfg style="color:lightgreen">- enable Aimbot>Main>Camera Fix</adfg>
+	</div>
+	<br>
+
+	<div class="nested-table_title" style="--level: 1;">
+	<a style="color:red">lower fps or breaked esp</a>
+	<br>
+	<adfg style="color:lightgreen">- perhaps something went wrong with your settings, try the config of other users from the forum</adfg>
+	<br>
+	<adfg style="color:lightgreen">- check Config>Optimization tips</adfg>
+	</div>
+	<br>
+
+	<div class="nested-table_title" style="--level: 1;">
+	<a style="color:red">"Failed lua initialization" or "The game crashes with an error ("gamemode" library is not a table)"</a>
+	<br>
+	<a style="color:lightgreen">- Steam>Garry's Mod>Local Files and press on "check integrity of game files"</a>
+	<br>
+	<adfg style="color:lightgreen">- delete folder lua in Steam/steamapps/common/GarrysMod/garrysmod/cache</adfg>
+	<br>
+	<adfg style="color:lightgreen">- possible server using addon gluapack, on some servers it is not compatible with the exechack, need disable <a style="color:yellow" href="https://gluapack.com/help/#opt-out" target="_blank">gluapack</a>.</adfg>
+	<br>
+	<adfg style="color:lightgreen">- maybe current Run Method not suitable for this server(method of injection in server addons), try all the others in Cheat>General>Run Method</adfg>
+	<br>
+	<adfg style="color:lightgreen">- report about this server in tickets if all of the above did not help</adfg>
+	<br>
+	</div>
+	<br>	
+
+
+	<div class="nested-table_title" style="--level: 1;">
+	<a style="color:red">cheat miss in hvh (hack vs hack)</a>
+	<br>
+	<adfg style="color:lightgreen">- exechack not created for hvh and not have competitive hvh functionality, search in <a style="color:yellow" href="https://x.exechack.cc/lua" target="_blank">lua list</a> cheat for hvh</adfg>
+	</div>
+	<br>
+	
+
+
+
+
+	</div>
+	</div> 
+	
+	</div>
+	</div>
+	
+	
+	
+	
+	<div class="db" id="functiondescription"><div class="db_header">Function description</div>
+	<div class="db_cards">
+              
+	<div class="card">
+	<div class="table-main"> 
+	<div class="row"><div class="row_left">Silent</div><div class="row_right">no visual aim</div></div>
+	<div class="row"><div class="row_left">Auto wall</div><div class="row_right">wall penetration check</div></div>
+	<div class="row"><div class="row_left">Return Fire</div><div class="row_right">automatic fire on the attacker if there is a weapon</div></div>
+	<div class="row"><div class="row_left">Entity Aimming</div><div class="row_right">adding list entities to aimbot targets</div></div>
+	<div class="row"><div class="row_left">No Spread</div><div class="row_right">disabling bullet spread, the character is deflected to the position at which the bullet will hit where you want</div></div>
+	<div class="row"><div class="row_left">Hitbox</div><div class="row_right">target body part selection</div></div>
+	<div class="row"><div class="row_left">Snapline</div><div class="row_right">line to the selected aimbot target</div></div>
+	<div class="row"><div class="row_left">Dormant</div><div class="row_right">ignoring players whose game engine does not load far away, behind the wall</div></div>
+	<div class="row"><div class="row_left">Debug Camera</div><div class="row_right">visual fly</div></div>
+	<div class="row"><div class="row_left">Edge Jump</div><div class="row_right">automatic jump at the end of the surface</div></div>
+	<div class="row"><div class="row_left">Cloud Radar</div><div class="row_right">radar which available from the site</div></div>
+	<div class="row"><div class="row_left">Keypad Logger</div><div class="row_right">recording entered passwords on keypads</div></div>
+	<div class="row"><div class="row_left">Lua Stealer</div><div class="row_right">saving all server client scripts to exechack folder</div></div>
+	<div class="row"><div class="row_left">Save Mode</div><div class="row_right">protection against running bad lua scripts by server creators</div></div>
+	<div class="row"><div class="row_left">Net Logger</div><div class="row_right">records network traffic between you and the server, to be modified and resent</div></div>
+	<div class="row"><div class="row_left">OBS bypass</div><div class="row_right">hide cheat on record video in obs</div></div>
+	<div class="row"><div class="row_left">Panic Key</div><div class="row_right">disable cheat by button</div></div>
+	<div class="row"><div class="row_left">Run Methods</div><div class="row_right">way to run cheat to server, all servers are different and do not have the same standardized code, so there are a couple of basic methods to run on the server</div></div>
+	<div class="row"><div class="row_left">Cursor Aimming</div><div class="row_right">aiming method where you don't aim your character at others, works the same as in C-MENU, autofire broken use keybind aim on lmb</div></div>
+	<div class="row"><div class="row_left">Camera Fix</div><div class="row_right">use 'cheat' camera only during aimbot, no work with anti-aim and nospread without aimbot. Fixes screen twitching on server.</div></div>
+	</div>
+	</div> 
+	
+	</div>
+	</div>
+
+
+
+
+
+      </div>
+    </main>
+    <aside class="navigation">
+      <div class="navigation_sticky">
+        <div class="section_header"><a href="https://x.exechack.cc/forum" class="navigation_link">Forum</a></div>
+        <ul class="navigation_ul">
+          <li>
+			<a href="#downloadloader" class="navigation_link">Loader</a>
+			<a href="#premium" class="navigation_link">Premium</a>
+			<a href="#new" class="navigation_link">Informations for newbies</a>
+			<a href="#usagecfg" class="navigation_link">Usage Cfg</a>
+			<a href="#usagelua" class="navigation_link">Usage Lua</a>
+			<a href="#createlua" class="navigation_link">Create Lua</a>
+			<a href="#hwid" class="navigation_link">HWID</a>
+			<a href="#buymethods" class="navigation_link">Buy Methods</a>
+			<a href="#rules" class="navigation_link">Rules</a>
+			<a href="#popularproblems" class="navigation_link">Popular problems</a>
+			<a href="#functiondescription" class="navigation_link">Function description</a>
+		  </li>	
+		</ul>
+      </div>
+      <div class="navigation_backdrop"></div>
+      <div class="navigation-button">
+        <span class="navigation-button_closed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg></span>
+        <span class="navigation-button_opened"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg></span>
+      </div>
+    </aside>
+  </div>
+
+</body>
+
+</html>
